@@ -8,7 +8,7 @@ Building
 - `gradle distzip` will create a zip file for distributing the utility.
 - `gradle installdist` will create the distribution director under `build`.
 - `gradle run` will run the utility in-place.
-- 
+
 Usage
 -----
 If you run the utility with `-h` you will get a list of options that may be supplied to the utility.
