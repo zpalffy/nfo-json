@@ -2,6 +2,10 @@
 
 A command-line utility that generates json for a number of .nfo files.  The utility is able to scan multiple directories at a time and combine all output into a single json document.  There are also options to download contained movie posters to a given directory while also resizing them.  It is written in Java utilizing Gradle to build.
 
+Why?
+----
+To present a list of all movies or tv shows on a web page.  [An example is here](http://zpalffy.github.io/nfo-json-example) ([source](https://github.com/zpalffy/zpalffy.github.io/tree/master/nfo-json-example)) using only html and javascript, but it would be possible to write your own presentation using the json output (and potentially the downloaded posters.)
+
 Building
 --------
 - `gradle tasks` will generate a list of tasks that can be performed.  
