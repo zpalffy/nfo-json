@@ -11,7 +11,7 @@ Building
 
 Usage
 -----
-If you run the utility with `-h` you will get a list of options that may be supplied to the utility.
+If you run the utility with `-h` you will get a list of options that may be supplied to the utility, e.g. `nfojson -h`.
 
 Example Output
 --------------
