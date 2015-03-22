@@ -1,6 +1,6 @@
 # nfo-json
 
-A command-line utility that generates json for a number of .nfo files.  The utility is able to scan multiple directories at a time and combine all output into a single json document.  It is written in Java and uses Gradle to build
+A command-line utility that generates json for a number of .nfo files.  The utility is able to scan multiple directories at a time and combine all output into a single json document.  There are also options to download contained movie posters to a given directory while also resizing them to a certain size.  It is written in Java and uses Gradle to build
 
 Building
 --------
@@ -100,6 +100,23 @@ The following is output when run on a directory that contains 2 .nfo files like 
       "thumb": "http://image.tmdb.org/t/p/original/kCAJavd4H4WXBdFb7PpmfsNlKPn.jpg"
    }
 ]
+```
+
+If run with `-thumb-dir` supplied, then movie posters are downloaded, e.g. `nfojson -pretty -thumb-dir ~/posters -thumb-height 100 /Media/Video/Movies'  This command will download the following posters:
+
+```
+~/posters/clue.jpg
+~/posters/42.jpg
+```
+
+The resulting json also contains the following for the `localThumb` property:
+
+```
+...
+"localThumb": "clue.jpg",
+...
+"localThumb": "42.jpg",
+...
 ```
 
 History
