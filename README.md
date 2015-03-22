@@ -1,6 +1,6 @@
 # nfo-json
 
-A command-line utility that generates json for a number of .nfo files.  The utility is able to scan multiple directories at a time and combine all output into a single json document.  There are also options to download contained movie posters to a given directory while also resizing them.  It is written in Java utilizes Gradle to build.
+A command-line utility that generates json for a number of .nfo files.  The utility is able to scan multiple directories at a time and combine all output into a single json document.  There are also options to download contained movie posters to a given directory while also resizing them.  It is written in Java utilizing Gradle to build.
 
 Building
 --------
