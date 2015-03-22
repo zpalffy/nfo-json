@@ -15,6 +15,8 @@ If you run the utility with `-h` you will get a list of options that may be supp
 
 Example Output
 --------------
+The following is output when run on a directory that contains 2 .nfo files like `nfojson -pretty /Media/Video/Movies`
+
 ``` json
 [
    {
