@@ -1,0 +1,21 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'application'
+apply plugin: 'maven'
+
+version = '1.0'
+group = 'com.eric'
+applicationName = 'nfojson'
+mainClassName = 'com.eric.Converter'
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+	compile 'commons-io:commons-io:+'
+	compile 'org.json:json:+'
+	compile 'com.eric:command:+'
+	compile 'net.coobird:thumbnailator:+'
+}
