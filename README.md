@@ -6,6 +6,10 @@ Why?
 ----
 To present a list of all movies or tv shows on a web page.  [An example is here](http://zpalffy.github.io/nfo-json-example) ([source](https://github.com/zpalffy/zpalffy.github.io/tree/master/nfo-json-example)) using only html and javascript, but it would be possible to write your own presentation using the json output (and potentially the downloaded posters.)
 
+Download
+--------
+A built distribution is [available here](https://www.dropbox.com/s/ropmkw4zkclzltl/nfojson.zip?dl=0).
+
 Building
 --------
 - `gradle tasks` will generate a list of tasks that can be performed.  
