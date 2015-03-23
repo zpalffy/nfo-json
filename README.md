@@ -8,14 +8,13 @@ To present a list of all movies or tv shows on a web page.  [An example is here]
 
 Download
 --------
-A built distribution is [available here](https://www.dropbox.com/s/ropmkw4zkclzltl/nfojson.zip?dl=0).
+A built distribution is [available here](https://www.dropbox.com/s/ropmkw4zkclzltl/nfojson.zip?dl=1).
 
 Building
 --------
 - `gradle tasks` will generate a list of tasks that can be performed.  
 - `gradle distzip` will create a zip file for distributing the utility.
 - `gradle installdist` will create the distribution director under `build`.
-- `gradle run` will run the utility in-place.
 
 Usage
 -----
