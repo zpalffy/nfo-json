@@ -14,7 +14,7 @@ Building
 --------
 - `gradle tasks` will generate a list of tasks that can be performed.  
 - `gradle distzip` will create a zip file for distributing the utility.
-- `gradle installdist` will create the distribution director under `build`.
+- `gradle installdist` will create the distribution directory under `build`.
 
 Usage
 -----
