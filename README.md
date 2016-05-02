@@ -8,7 +8,7 @@ To present a list of all movies or tv shows on a web page.  [An example is here]
 
 Download
 --------
-A built distribution is [available here](https://www.dropbox.com/s/ropmkw4zkclzltl/nfojson.zip?dl=1).
+The zip file for the most recent distribution is available from [the latest release page](https://github.com/zpalffy/nfo-json/releases/latest).
 
 Building
 --------
