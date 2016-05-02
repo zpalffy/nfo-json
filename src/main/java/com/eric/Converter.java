@@ -31,8 +31,7 @@ public class Converter extends Command {
 	private boolean prettyPrint;
 
 	@Parameter(names = "-thumb-dir", description = "Specifies a directory to download all poster "
-			+ "artwork to.  If nothing is specified, then no "
-			+ "posters are downloaded.")
+			+ "artwork to.  If nothing is specified, then no " + "posters are downloaded.")
 	private String downloadThumbPath;
 
 	@Parameter(names = "-thumb-height", description = "The max height of the thumbnail image.  Only used if "
@@ -49,8 +48,7 @@ public class Converter extends Command {
 		File f = null;
 
 		for (String ext : VIDEO_EXTENSIONS) {
-			f = new File(FilenameUtils.removeExtension(nfo.getAbsolutePath())
-					+ '.' + ext);
+			f = new File(FilenameUtils.removeExtension(nfo.getAbsolutePath()) + '.' + ext);
 			if (f.exists() && f.isFile()) {
 				return f;
 			}
@@ -60,7 +58,7 @@ public class Converter extends Command {
 	}
 
 	private JSONObject nfo(File nfo) throws IOException {
-		String contents = FileUtils.readFileToString(nfo);
+		String contents = FileUtils.readFileToString(nfo, "UTF-8");
 
 		JSONObject retVal = XML.toJSONObject(contents);
 		if (retVal.has("movie")) {
@@ -71,14 +69,12 @@ public class Converter extends Command {
 			if (video != null) {
 				retVal.put("updated", new Date(video.lastModified()));
 			} else {
-				warn("Unable to find corresponding video for "
-						+ nfo.getAbsolutePath());
+				err("Unable to find corresponding video for %s", nfo.getAbsolutePath());
 				retVal.put("updated", new Date(nfo.lastModified()));
 			}
 
 			if (downloadThumbPath != null) {
-				String p = retVal.get("title").toString().replaceAll(" ", "_")
-						.replaceAll("\\W", "").toLowerCase()
+				String p = retVal.get("title").toString().replaceAll(" ", "_").replaceAll("\\W", "").toLowerCase()
 						+ ".jpg";
 				downloadThumb(retVal.getString("thumb"), p);
 				retVal.put("localThumb", p);
@@ -87,7 +83,7 @@ public class Converter extends Command {
 			return retVal;
 		}
 
-		warn("Unable to parse NFO file " + nfo.getAbsolutePath());
+		err("Unable to parse NFO file %s.", nfo.getAbsolutePath());
 		return null;
 	}
 
@@ -98,10 +94,9 @@ public class Converter extends Command {
 			f.getParentFile().mkdirs();
 			try {
 				Thumbnails.of(new URL(from)).height(thumbHeight).toFile(f);
-				info("Downloaded poster to " + f.getAbsolutePath());
+				verbose("Downloaded poster to %s.", f.getAbsolutePath());
 			} catch (Exception e) {
-				warn("Unable to download poster from " + from + ", to "
-						+ f.getAbsolutePath(), e);
+				err("Unable to download poster from " + from + ", to " + f.getAbsolutePath(), e);
 			}
 		}
 	}
@@ -110,9 +105,10 @@ public class Converter extends Command {
 		JSONObject movies = new JSONObject();
 
 		for (String loc : dirs) {
-			for (File file : FileUtils.listFiles(new File(loc), NFO_EXTENSIONS,
-					true)) {
-				movies.accumulate("movies", nfo(file));
+			for (File file : FileUtils.listFiles(new File(loc), NFO_EXTENSIONS, true)) {
+				if (!file.isHidden() && file.length() != 0L) {
+					movies.accumulate("movies", nfo(file));
+				}
 			}
 		}
 

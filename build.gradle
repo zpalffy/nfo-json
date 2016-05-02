@@ -15,6 +15,6 @@ repositories {
 dependencies {
 	compile 'commons-io:commons-io:+'
 	compile 'org.json:json:+'
-	compile 'com.beust:jcommander:+'
+	compile 'com.eric:cli:+'
 	compile 'net.coobird:thumbnailator:+'
 }
